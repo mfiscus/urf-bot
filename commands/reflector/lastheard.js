@@ -1,6 +1,6 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const { request } = require('undici');
-const { api } = require('../../config.json');
+const { api, url, icon } = require('../../config.json');
 
 
 module.exports = {
@@ -23,28 +23,13 @@ module.exports = {
         
         const reflector = await body.json();
 
-        //const { operators } = reflector.operators;
-        const [ stations ] = reflector.stations;
-
         console.log('json', reflector)
-
-        /*
-        // Use embed object here
-                  .addFields(
-                { name: 'Name', value: `${stations.fname + ' ' + stations.lname[0]}` },
-                { name: 'Callsign', value: `${stations.callsign}` },
-                { name: 'connected', value: `${stations.connected}` },
-                { name: 'lastheard', value: `${stations.lastheard}` },
-                { name: 'module', value: `${stations.module}` },
-                { name: 'protocol', value: `${stations.protocol}` },
-            )
-        */
 
         const embed = new EmbedBuilder()
         .setColor(0xEFFF00)
         .setTitle(reflector.reflector.name)
         .setURL(reflector.reflector.dashboard)
-        .setAuthor({ name: `${reflector.reflector.comment}`, iconURL: 'https://xlx847.kk7mnz.com/img/logo.png', url: 'https://dev.chandlerhams.org' })
+        .setAuthor({ name: `${reflector.reflector.comment}`, iconURL: `${icon}`, url: `${url}` })
             .addFields(
                 { name: 'Name', value: `${reflector.operators[0].fname + ' ' + reflector.operators[0].lname[0]}`, inline: true },
                 { name: 'Callsign', value: `${reflector.operators[0].callsign}`, inline: true },

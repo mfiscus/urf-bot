@@ -1,6 +1,6 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const { request } = require('undici');
-const { api } = require('../../config.json');
+const { api, url, icon } = require('../../config.json');
 
 
 module.exports = {
@@ -24,7 +24,7 @@ module.exports = {
         const reflector = await body.json();
 
         //const { operators } = reflector.operators;
-        const [ stations ] = reflector.stations;
+        //const [ stations ] = reflector.stations;
 
         console.log('json', reflector)
 
@@ -44,7 +44,7 @@ module.exports = {
             .setColor(0xEFFF00)
             .setTitle(reflector.reflector.name)
             .setURL(reflector.reflector.dashboard + '?show=repeaters')
-            .setAuthor({ name: `${reflector.reflector.comment}`, iconURL: 'https://xlx847.kk7mnz.com/img/logo.png', url: 'https://dev.chandlerhams.org' })
+            .setAuthor({ name: `${reflector.reflector.comment}`, iconURL: `${icon}`, url: `${url}` })
             .addFields(
                 { name: 'Stations Connected', value: `${reflector.reflector.stations}` },
             )
