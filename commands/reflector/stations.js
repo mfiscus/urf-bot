@@ -26,7 +26,7 @@ module.exports = {
         //const { operators } = reflector.operators;
         //const [ stations ] = reflector.stations;
 
-        console.log('json', reflector)
+        console.log('payload', reflector)
 
         /*
         // Use embed object here

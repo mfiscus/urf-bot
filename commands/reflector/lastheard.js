@@ -23,7 +23,7 @@ module.exports = {
         
         const reflector = await body.json();
 
-        console.log('json', reflector)
+        console.log('payload', reflector)
 
         const embed = new EmbedBuilder()
         .setColor(0xEFFF00)
