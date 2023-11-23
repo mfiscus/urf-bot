@@ -1,0 +1,8 @@
+{
+    "token": "your-token-goes-here",
+    "clientId": "your-application-id-goes-here",
+    "guildId": "your-server-id-goes-here",
+    "api": "your-dashboard-url-goes-here/json/",
+    "icon": "your-app-icon-url-goes-here",
+    "url": "your-website-url-goes-here"
+}
